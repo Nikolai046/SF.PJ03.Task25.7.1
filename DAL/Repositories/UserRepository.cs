@@ -12,7 +12,7 @@ public class UserRepository : Repository<User>
         if (user != null)
         {
             user.Name = newName;
-            _context.SaveChanges();
+            //  _context.SaveChanges();
         }
     }
 
@@ -23,7 +23,7 @@ public class UserRepository : Repository<User>
         if (user != null && book != null && book.UserId == null)
         {
             book.UserId = userId;
-            _context.SaveChanges();
+            //  _context.SaveChanges();
         }
     }
 

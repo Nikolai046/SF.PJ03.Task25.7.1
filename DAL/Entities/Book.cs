@@ -7,7 +7,7 @@ public class Book
     public int Year { get; set; }
     public ICollection<Genre> Genres { get; set; }
 
-    public ICollection <Author> Authors { get; set; }
+    public ICollection<Author> Authors { get; set; }
 
     public int? UserId { get; set; }
     public User? User { get; set; }

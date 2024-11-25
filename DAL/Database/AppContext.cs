@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using SF.PJ03.Task25._7._1.DAL.Database.DAL.DbConfigurations;
 using SF.PJ03.Task25._7._1.DAL.Entities;
 
 namespace SF.PJ03.Task25._7._1.DAL.Database;
@@ -17,21 +16,20 @@ public class AppContext : DbContext
 
     public AppContext()
     {
-       connectionString = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory()) // Указываем текущий каталог
-            .AddJsonFile("appsettings.json") // Подключаем appsettings.json
-            .Build()
-            .GetConnectionString("Database");
-        
-        Database.EnsureDeleted();
-        Database.EnsureCreated();
+        connectionString = new ConfigurationBuilder()
+             .SetBasePath(Directory.GetCurrentDirectory()) // Указываем текущий каталог
+             .AddJsonFile("appsettings.json") // Подключаем appsettings.json
+             .Build()
+             .GetConnectionString("Database");
 
+        //Database.EnsureDeleted();
+        Database.EnsureCreated();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-       modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppContext).Assembly);
-       base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppContext).Assembly);
+        base.OnModelCreating(modelBuilder);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -47,4 +45,3 @@ public class AppContext : DbContext
             .EnableSensitiveDataLogging();
     }
 }
-

@@ -12,18 +12,18 @@ public class BookRepository : Repository<Book>
         if (book != null)
         {
             book.Year = newYear;
-            _context.SaveChanges();
+            // _context.SaveChanges();
         }
     }
 
-    public void AddAuthorToBook(int bookId, int authorId)
+    public void AddAuthorToBookByID(int bookId, int authorId)
     {
         var book = GetById(bookId);
         var author = _context.Authors.FirstOrDefault(a => a.Id == authorId);
         if (book != null && author != null && !book.Authors.Contains(author))
         {
             book.Authors.Add(author);
-            _context.SaveChanges();
+            // _context.SaveChanges();
         }
     }
 
@@ -34,9 +34,13 @@ public class BookRepository : Repository<Book>
         if (book != null && genre != null && !book.Genres.Contains(genre))
         {
             book.Genres.Add(genre);
-            _context.SaveChanges();
+            //_context.SaveChanges();
         }
     }
+
+
+
+
 
     public IEnumerable<Book> GetBooksByGenreAndYear(string genre, int startYear, int endYear)
     {
