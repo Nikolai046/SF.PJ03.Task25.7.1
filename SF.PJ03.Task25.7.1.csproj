@@ -22,7 +22,6 @@
     <Folder Include="BLL\Exceptions\" />
     <Folder Include="BLL\Models\" />
     <Folder Include="BLL\Services\" />
-    <Folder Include="DAL\Seeds\" />
     <Folder Include="DAL\Database\" />
     <Folder Include="PLL\Views\" />
     <Folder Include="PLL\Helpers\" />

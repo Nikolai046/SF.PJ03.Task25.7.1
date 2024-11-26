@@ -1,10 +1,12 @@
-﻿using SF.PJ03.Task25._7._1.DAL.Entities;
+﻿ using SF.PJ03.Task25._7._1.DAL.Entities;
 
 namespace SF.PJ03.Task25._7._1.DAL.Database.DAL.Repositories;
 
 public class BookRepository : Repository<Book>
 {
-    public BookRepository(AppContext context) : base(context) { }
+    public BookRepository(AppContext context) : base(context)
+    {
+    }
 
     public void UpdateBookYear(int bookId, int newYear)
     {
@@ -37,10 +39,6 @@ public class BookRepository : Repository<Book>
             //_context.SaveChanges();
         }
     }
-
-
-
-
 
     public IEnumerable<Book> GetBooksByGenreAndYear(string genre, int startYear, int endYear)
     {
