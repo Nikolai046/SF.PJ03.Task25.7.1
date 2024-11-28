@@ -1,4 +1,6 @@
-﻿namespace SF.PJ03.Task25._7._1.DAL.Database.PLL.Views;
+﻿using SF.PJ03.Task25._7._1.DAL.Database.BLL.Services;
+
+namespace SF.PJ03.Task25._7._1.DAL.Database.PLL.Views;
 
 public class SubView_1
 {
@@ -10,32 +12,42 @@ public class SubView_1
             Console.WriteLine("Управление пользователями" +
                               "\n\t(нажмите 1) Добавить нового пользователя" +
                               "\n\t(нажмите 2) Просмотреть всех пользователей" +
-                              "\n\t(нажмите 3) Обновить имя пользователя" +
-                              "\n\t(нажмите 4) Получить информацию о пользователе" +
-                              "\n\t(нажмите 5) Назад");
+                              "\n\t(нажмите 3) Обновить данные пользователя" +
+                              "\n\t(нажмите 4) Получить информацию о пользователе по Id" +
+                              "\n\t(нажмите 0) Назад");
 
             switch (Console.ReadLine())
             {
                 case "1":
                     {
-                        //Program.authenticationView.Show();
+                        using (var userService = new UserService())
+                        { userService.AddNewUser(); }
                         break;
                     }
 
                 case "2":
                     {
-                        //Program.registrationView.Show();
+                        using (var userService = new UserService())
+                        { userService.GetAllUsers(); }
                         break;
                     }
                 case "3":
                     {
-                        break;
+                        {
+                            using (var userService = new UserService())
+                            { userService.UpdateUserData(); }
+                            break;
+                        };
                     }
                 case "4":
                     {
+                        using (var userService = new UserService())
+                        {
+                            userService.GetUserById();
+                        }
                         break;
                     }
-                case "5":
+                case "0":
                     {
                         Program.mainView.Show();
                         break;

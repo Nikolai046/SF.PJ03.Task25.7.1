@@ -1,4 +1,6 @@
-﻿namespace SF.PJ03.Task25._7._1.DAL.Database.PLL.Views;
+﻿using SF.PJ03.Task25._7._1.DAL.Database.BLL.Services;
+
+namespace SF.PJ03.Task25._7._1.DAL.Database.PLL.Views;
 
 public class SubView_3
 {
@@ -11,26 +13,30 @@ public class SubView_3
                               "\n\t(нажмите 1) Взять книгу" +
                               "\n\t(нажмите 2) Вернуть книгу" +
                               "\n\t(нажмите 3) Список книг на руках" +
-                              "\n\t(нажмите 4) Назад");
+                              "\n\t(нажмите 0) Назад");
 
             switch (Console.ReadLine())
             {
                 case "1":
                     {
-                        //Program.authenticationView.Show();
+                        using (var userService = new UserService())
+                        { userService.TakeBook(); }
                         break;
                     }
 
                 case "2":
                     {
-                        //Program.registrationView.Show();
+                        using (var userService = new UserService())
+                        { userService.ReturnBook(); }
                         break;
                     }
                 case "3":
                     {
+                        using (var userService = new UserService())
+                        { userService.GetBookOnHand(); }
                         break;
                     }
-                case "4":
+                case "0":
                     {
                         Program.mainView.Show();
                         Environment.Exit(0);

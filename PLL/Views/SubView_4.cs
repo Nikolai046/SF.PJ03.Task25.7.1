@@ -1,4 +1,6 @@
-﻿namespace SF.PJ03.Task25._7._1.DAL.Database.PLL.Views;
+﻿using SF.PJ03.Task25._7._1.DAL.Database.BLL.Services;
+
+namespace SF.PJ03.Task25._7._1.DAL.Database.PLL.Views;
 
 public class SubView_4
 {
@@ -8,44 +10,40 @@ public class SubView_4
         {
             Console.Clear();
             Console.WriteLine("Поиск и фильтрация" +
-                              "\n\t(нажмите 1) Книги по жанру" +
-                              "\n\t(нажмите 2) Книги между определенными годами" +
-                              "\n\t(нажмите 3) Книги определенного автора" +
-                              "\n\t(нажмите 4) Последняя вышедшая книга" +
-                              "\n\t(нажмите 5) Список книг по алфавиту" +
-                              "\n\t(нажмите 6) писок книг по году выхода (убывание)" +
-                              "\n\t(нажмите 7) Назад");
+                              "\n\t(нажмите 1) Список книг по жанру" +
+                              "\n\t(нажмите 2) Список книг по автору" +
+                              "\n\t(нажмите 3) Список книг по алфавиту" +
+                              "\n\t(нажмите 4) Список книг по году выхода (убывание)" +
+                              "\n\t(нажмите 0) Назад");
 
             switch (Console.ReadLine())
             {
                 case "1":
                     {
-                        //Program.authenticationView.Show();
+                        using (var bookService = new Bookservice())
+                        { bookService.GetAllBooksByGenre(); }
                         break;
                     }
 
                 case "2":
                     {
-                        //Program.registrationView.Show();
+                        using (var bookService = new Bookservice())
+                        { bookService.GetAllBooksByAuthor(); }
                         break;
                     }
                 case "3":
                     {
+                        using var bookService = new Bookservice();
+                        bookService.GetAllBooksByAlphabet();
                         break;
                     }
                 case "4":
                     {
+                        using var bookService = new Bookservice();
+                        bookService.GetAllBooksByYear();
                         break;
                     }
-                case "5":
-                    {
-                        break;
-                    }
-                case "6":
-                    {
-                        break;
-                    }
-                case "7":
+                case "0":
                     {
                         Program.mainView.Show();
                         break;
