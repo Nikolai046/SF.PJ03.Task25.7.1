@@ -4,6 +4,10 @@ using SF.PJ03.Task25._7._1.DAL.Entities;
 
 namespace SF.PJ03.Task25._7._1.DAL.Database.DAL.DbConfigurations;
 
+/// <summary>
+/// Конфигурация сущности `Author` для настройки таблицы в базе данных.
+/// Настраивает имя таблицы, ограничения и свойства.
+/// </summary>
 public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 {
     public void Configure(EntityTypeBuilder<Author> builder)

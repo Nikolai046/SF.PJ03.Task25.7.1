@@ -2,6 +2,9 @@
 
 namespace SF.PJ03.Task25._7._1.DAL.Database.DAL.Repositories;
 
+/// <summary>
+/// Базовый репозиторий для работы с сущностями. Обеспечивает базовые операции CRUD.
+/// </summary>
 public abstract class Repository<T> where T : class
 {
     protected readonly AppContext _context;
@@ -26,13 +29,11 @@ public abstract class Repository<T> where T : class
     public void Add(T entity)
     {
         _dbSet.Add(entity);
-        /// _context.SaveChanges();
     }
 
     public void AddRange(List<T> entities)
     {
         _dbSet.AddRange(entities);
-        // _context.SaveChanges();
     }
 
     public void Delete(int id)
@@ -41,7 +42,6 @@ public abstract class Repository<T> where T : class
         if (entity != null)
         {
             _dbSet.Remove(entity);
-            //   _context.SaveChanges();
         }
     }
 }

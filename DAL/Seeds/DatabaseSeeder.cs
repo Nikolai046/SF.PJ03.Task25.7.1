@@ -3,6 +3,9 @@ using SF.PJ03.Task25._7._1.DAL.Entities;
 
 namespace SF.PJ03.Task25._7._1.DAL.Database.DAL.Seeds;
 
+/// <summary>
+/// Статический класс для начального заполнения базы данных тестовыми данными.
+/// </summary>
 public static class DatabaseSeeder
 {
     public static void SeedDatabase(AppContext db)

@@ -5,6 +5,10 @@ using SF.PJ03.Task25._7._1.DAL.Entities;
 
 namespace SF.PJ03.Task25._7._1.DAL.Database;
 
+/// <summary>
+/// Контекст базы данных приложения, содержащий DbSet для пользователей, книг, авторов и жанров.
+/// Настраивает подключение, модель базы данных и логирование.
+/// </summary>
 public class AppContext : DbContext
 {
     public DbSet<User> Users { get; set; }

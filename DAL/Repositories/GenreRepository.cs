@@ -2,6 +2,9 @@
 
 namespace SF.PJ03.Task25._7._1.DAL.Database.DAL.Repositories;
 
+/// <summary>
+/// Репозиторий для работы с жанрами.
+/// </summary>
 public class GenreRepository : Repository<Genre>
 {
     public GenreRepository(AppContext context) : base(context)

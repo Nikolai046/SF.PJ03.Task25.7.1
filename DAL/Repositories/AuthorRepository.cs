@@ -2,6 +2,10 @@
 
 namespace SF.PJ03.Task25._7._1.DAL.Database.DAL.Repositories;
 
+/// <summary>
+/// Репозиторий для работы с авторами.
+/// Содержит методы для управления авторами и получения данных из базы.
+/// </summary>
 public class AuthorRepository : Repository<Author>
 {
     public AuthorRepository(AppContext context) : base(context)
